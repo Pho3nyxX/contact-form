@@ -4,13 +4,14 @@
   "description": "",
   "license": "ISC",
   "author": "Pho3nyxX",
-  "type": "commonjs",
   "main": "db.js",
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js"
   },
   "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
     "express-validator": "^7.3.1",
     "mongodb": "^7.0.0"
   },

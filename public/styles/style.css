@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #b4b2b2;
+
+    .form-container {
+        max-width: 400px;
+        margin: 60px auto;
+        background: #edaeae;
+        padding: 20px;
+        border-radius: 8px;
+
+        h1 {
+            text-align: center;
+        }
+
+        input,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        button {
+            background: #921c1c;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 16px;
+        }
+    }
+}
