@@ -1,5 +1,6 @@
 import express from "express";
 import { connectDB } from "../db.js";
+import contactSchema from "../middleware/contactSchema.js";
 
 const router = express.Router();
 
@@ -20,7 +21,7 @@ router.get("/", async ( req, res) => {
     }
 })
 
-router.post('/', async (req, res) => {
+router.post('/', contactSchema, async (req, res) => {
     // console.log("Body:", req.body);
 
     try {
