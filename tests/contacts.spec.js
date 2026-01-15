@@ -21,3 +21,11 @@ test("POST invalid email error", async ({ request }) => {
 
     expect(res.status()).toBe(400);
 });
+
+test("GET returns contacts", async ({ request }) => {
+    let res = await request.get("/contacts");
+    let body = await res.json();
+
+    expect(res.status()).toBe(200);
+    expect(Array.isArray(body)).toBe(true);
+});
