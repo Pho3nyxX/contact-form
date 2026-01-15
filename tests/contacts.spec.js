@@ -11,3 +11,13 @@ test("POST create new contact", async ({ request }) => {
 
     expect(res.status()).toBe(201);
 });
+
+test("POST invalid email error", async ({ request }) => {
+    let res = await request.post("/contacts", {
+        data: { 
+            email: "not good" 
+        }
+    });
+
+    expect(res.status()).toBe(400);
+});
