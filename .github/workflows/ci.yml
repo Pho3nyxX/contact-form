@@ -2,13 +2,23 @@ name: Contact Form API
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   api-tests:
     runs-on: ubuntu-latest
+
+    services:
+      mongo:
+        image: mongo:6
+        ports:
+          - 27017:27017
+
+    env:
+      MONGODB_URI: mongodb://localhost:27017/contactForm
+      PORT: 3000
 
     steps:
       - uses: actions/checkout@v4
@@ -26,10 +36,8 @@ jobs:
       - name: Start server
         run: |
           npm start &
-          # sleep 5
+          npx wait-on tcp:27017
           npx wait-on http://localhost:3000
-        env:
-          MONGODB_URI: ${{ secrets.MONGODB_URI }}
 
       - name: Run API tests
         run: npm run test:api
