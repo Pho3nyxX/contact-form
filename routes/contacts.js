@@ -22,8 +22,6 @@ router.get("/", async ( req, res) => {
 })
 
 router.post('/', contactSchema, async (req, res) => {
-    // console.log("Body:", req.body);
-
     try {
         let db = await connectDB();
 

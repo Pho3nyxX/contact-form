@@ -1,5 +1,3 @@
-// console.log("Loaded");
-
 document.querySelector("form").addEventListener("submit", async (e) => {
   e.preventDefault();
 
